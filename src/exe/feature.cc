@@ -102,6 +102,10 @@ void UpdateImageReaderOptionsFromCameraMode(ImageReaderOptions& options,
 }
 
 int RunFeatureExtractor(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunFeatureExtractor argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunFeatureExtractor argv[" << i << "]: " << argv[i];
+  }
   std::string image_list_path;
   int camera_mode = -1;
   std::string descriptor_normalization = "l1_root";
@@ -177,6 +181,10 @@ int RunFeatureExtractor(int argc, char** argv) {
 }
 
 int RunFeatureImporter(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunFeatureImporter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunFeatureImporter argv[" << i << "]: " << argv[i];
+  }
   std::string import_path;
   std::string image_list_path;
   int camera_mode = -1;
@@ -219,6 +227,10 @@ int RunFeatureImporter(int argc, char** argv) {
 }
 
 int RunExhaustiveMatcher(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunExhaustiveMatcher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunExhaustiveMatcher argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddExhaustiveMatchingOptions();
@@ -248,6 +260,10 @@ int RunExhaustiveMatcher(int argc, char** argv) {
 }
 
 int RunMatchesImporter(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunMatchesImporter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunMatchesImporter argv[" << i << "]: " << argv[i];
+  }
   std::string match_list_path;
   std::string match_type = "pairs";
 
@@ -296,6 +312,10 @@ int RunMatchesImporter(int argc, char** argv) {
 }
 
 int RunSequentialMatcher(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunSequentialMatcher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunSequentialMatcher argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddSequentialMatchingOptions();
@@ -325,6 +345,10 @@ int RunSequentialMatcher(int argc, char** argv) {
 }
 
 int RunSpatialMatcher(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunSpatialMatcher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunSpatialMatcher argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddSpatialMatchingOptions();
@@ -354,6 +378,10 @@ int RunSpatialMatcher(int argc, char** argv) {
 }
 
 int RunTransitiveMatcher(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunTransitiveMatcher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunTransitiveMatcher argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddTransitiveMatchingOptions();
@@ -383,6 +411,10 @@ int RunTransitiveMatcher(int argc, char** argv) {
 }
 
 int RunVocabTreeMatcher(int argc, char** argv) {
+  LOG(INFO) << "feature.cc RunVocabTreeMatcher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "feature.cc RunVocabTreeMatcher argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddVocabTreeMatchingOptions();

@@ -37,6 +37,11 @@
 namespace colmap {
 
 int RunGraphicalUserInterface(int argc, char** argv) {
+  LOG(INFO) << "gui.cc RunGraphicalUserInterface argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "colmap.cc RunGraphicalUserInterface argv[" << i << "]: " << argv[i];
+  }
+
 #ifndef GUI_ENABLED
   std::cerr << "ERROR: Cannot start colmap GUI; colmap was built without GUI "
                "support or QT dependency is missing."
@@ -74,6 +79,10 @@ int RunGraphicalUserInterface(int argc, char** argv) {
 }
 
 int RunProjectGenerator(int argc, char** argv) {
+  LOG(INFO) << "gui.cc RunProjectGenerator argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "gui.cc RunProjectGenerator argv[" << i << "]: " << argv[i];
+  }
   std::string output_path;
   std::string quality = "high";
 

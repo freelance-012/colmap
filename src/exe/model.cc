@@ -262,6 +262,10 @@ void PrintComparisonSummary(std::ostream& out,
 // - robust_alignment_max_error: ransac error to use if robust alignment is
 // enabled
 int RunModelAligner(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelAligner argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelAligner argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string database_path;
@@ -434,6 +438,10 @@ int RunModelAligner(int argc, char** argv) {
 }
 
 int RunModelAnalyzer(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelAnalyzer argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelAnalyzer argv[" << i << "]: " << argv[i];
+  }
   std::string path;
 
   OptionManager options;
@@ -469,6 +477,10 @@ int RunModelAnalyzer(int argc, char** argv) {
 }
 
 int RunModelComparer(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelComparer argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelComparer argv[" << i << "]: " << argv[i];
+  }
   std::string input_path1;
   std::string input_path2;
   std::string output_path;
@@ -565,6 +577,10 @@ int RunModelComparer(int argc, char** argv) {
 }
 
 int RunModelConverter(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelConverter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelConverter argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string output_type;
@@ -611,6 +627,10 @@ int RunModelConverter(int argc, char** argv) {
 }
 
 int RunModelCropper(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelCropper argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelCropper argv[" << i << "]: " << argv[i];
+  }
   Timer timer;
   timer.Start();
 
@@ -684,6 +704,10 @@ int RunModelCropper(int argc, char** argv) {
 }
 
 int RunModelMerger(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelMerger argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelMerger argv[" << i << "]: " << argv[i];
+  }
   std::string input_path1;
   std::string input_path2;
   std::string output_path;
@@ -730,6 +754,10 @@ int RunModelMerger(int argc, char** argv) {
 }
 
 int RunModelOrientationAligner(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelOrientationAligner argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelOrientationAligner argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string method = "MANHATTAN-WORLD";
@@ -796,6 +824,10 @@ int RunModelOrientationAligner(int argc, char** argv) {
 }
 
 int RunModelSplitter(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelSplitter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelSplitter argv[" << i << "]: " << argv[i];
+  }
   Timer timer;
   timer.Start();
 
@@ -981,6 +1013,10 @@ int RunModelSplitter(int argc, char** argv) {
 }
 
 int RunModelTransformer(int argc, char** argv) {
+  LOG(INFO) << "model.cc RunModelTransformer argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "model.cc RunModelTransformer argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string transform_path;

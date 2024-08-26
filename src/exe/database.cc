@@ -38,6 +38,10 @@
 namespace colmap {
 
 int RunDatabaseCleaner(int argc, char** argv) {
+  LOG(INFO) << "database.cc RunDatabaseCleaner argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "database.cc RunDatabaseCleaner argv[" << i << "]: " << argv[i];
+  }
   std::string type;
 
   OptionManager options;
@@ -79,6 +83,10 @@ int RunDatabaseCleaner(int argc, char** argv) {
 }
 
 int RunDatabaseCreator(int argc, char** argv) {
+  LOG(INFO) << "database.cc RunDatabaseCreator argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "database.cc RunDatabaseCreator argv[" << i << "]: " << argv[i];
+  }
   OptionManager options;
   options.AddDatabaseOptions();
   options.Parse(argc, argv);
@@ -89,6 +97,10 @@ int RunDatabaseCreator(int argc, char** argv) {
 }
 
 int RunDatabaseMerger(int argc, char** argv) {
+  LOG(INFO) << "database.cc RunDatabaseMerger argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "database.cc RunDatabaseMerger argv[" << i << "]: " << argv[i];
+  }
   std::string database_path1;
   std::string database_path2;
   std::string merged_database_path;

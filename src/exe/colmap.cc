@@ -98,6 +98,9 @@ int main(int argc, char** argv) {
   Q_INIT_RESOURCE(resources);
 #endif
 
+  LOG(INFO) << "[file_name] [function_name] [comment]";
+  LOG(INFO) << "colmap.cc main " << argv[0];
+
   std::vector<std::pair<std::string, command_func_t>> commands;
   commands.emplace_back("gui", &RunGraphicalUserInterface);
   commands.emplace_back("automatic_reconstructor", &RunAutomaticReconstructor);
@@ -144,8 +147,13 @@ int main(int argc, char** argv) {
   commands.emplace_back("vocab_tree_matcher", &RunVocabTreeMatcher);
   commands.emplace_back("vocab_tree_retriever", &RunVocabTreeRetriever);
 
+  LOG(INFO) << "colmap.cc main argc: " << argc;
   if (argc == 1) {
     return ShowHelp(commands);
+  }
+
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "colmap.cc main argv[" << i << "]: " << argv[i];
   }
 
   const std::string command = argv[1];
@@ -155,6 +163,7 @@ int main(int argc, char** argv) {
     command_func_t matched_command_func = nullptr;
     for (const auto& command_func : commands) {
       if (command == command_func.first) {
+        LOG(INFO) << "colmap.cc main matched_command: " << command;
         matched_command_func = command_func.second;
         break;
       }

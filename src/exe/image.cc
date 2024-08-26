@@ -75,6 +75,10 @@ std::vector<std::pair<image_t, image_t>> ReadStereoImagePairs(
 }  // namespace
 
 int RunImageDeleter(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageDeleter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageDeleter argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string image_ids_path;
@@ -153,6 +157,10 @@ int RunImageDeleter(int argc, char** argv) {
 }
 
 int RunImageFilterer(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageFilterer argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageFilterer argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   double min_focal_length_ratio = 0.1;
@@ -202,6 +210,10 @@ int RunImageFilterer(int argc, char** argv) {
 }
 
 int RunImageRectifier(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageRectifier argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageRectifier argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string stereo_pairs_list;
@@ -237,6 +249,10 @@ int RunImageRectifier(int argc, char** argv) {
 }
 
 int RunImageRegistrator(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageRegistrator argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageRegistrator argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
 
@@ -308,6 +324,10 @@ int RunImageRegistrator(int argc, char** argv) {
 }
 
 int RunImageUndistorter(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageUndistorter argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageUndistorter argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string output_type = "COLMAP";
@@ -405,6 +425,10 @@ int RunImageUndistorter(int argc, char** argv) {
 }
 
 int RunImageUndistorterStandalone(int argc, char** argv) {
+  LOG(INFO) << "image.cc RunImageUndistorterStandalone argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "image.cc RunImageUndistorterStandalone argv[" << i << "]: " << argv[i];
+  }
   std::string input_file;
   std::string output_path;
 

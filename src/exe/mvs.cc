@@ -41,6 +41,10 @@
 namespace colmap {
 
 int RunDelaunayMesher(int argc, char** argv) {
+  LOG(INFO) << "mvs.cc RunDelaunayMesher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "mvs.cc RunDelaunayMesher argv[" << i << "]: " << argv[i];
+  }
 #ifndef CGAL_ENABLED
   std::cerr << "ERROR: Delaunay meshing requires CGAL, which is not "
                "available on your system."
@@ -79,6 +83,10 @@ int RunDelaunayMesher(int argc, char** argv) {
 }
 
 int RunPatchMatchStereo(int argc, char** argv) {
+  LOG(INFO) << "mvs.cc RunPatchMatchStereo argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "mvs.cc RunPatchMatchStereo argv[" << i << "]: " << argv[i];
+  }
 #ifndef CUDA_ENABLED
   std::cerr << "ERROR: Dense stereo reconstruction requires CUDA, which is not "
                "available on your system."
@@ -121,6 +129,10 @@ int RunPatchMatchStereo(int argc, char** argv) {
 }
 
 int RunPoissonMesher(int argc, char** argv) {
+  LOG(INFO) << "mvs.cc RunPoissonMesher argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "mvs.cc RunPoissonMesher argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
 
@@ -136,6 +148,10 @@ int RunPoissonMesher(int argc, char** argv) {
 }
 
 int RunStereoFuser(int argc, char** argv) {
+  LOG(INFO) << "mvs.cc RunStereoFuser argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "mvs.cc RunStereoFuser argv[" << i << "]: " << argv[i];
+  }
   std::string workspace_path;
   std::string input_type = "geometric";
   std::string workspace_format = "COLMAP";

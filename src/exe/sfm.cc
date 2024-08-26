@@ -46,6 +46,11 @@
 namespace colmap {
 
 int RunAutomaticReconstructor(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunAutomaticReconstructor argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunAutomaticReconstructor argv[" << i << "]: " << argv[i];
+  }
+  
   AutomaticReconstructionController::Options reconstruction_options;
   std::string data_type = "individual";
   std::string quality = "high";
@@ -133,6 +138,10 @@ int RunAutomaticReconstructor(int argc, char** argv) {
 }
 
 int RunBundleAdjuster(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunBundleAdjuster argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunBundleAdjuster argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
 
@@ -165,6 +174,10 @@ int RunBundleAdjuster(int argc, char** argv) {
 }
 
 int RunColorExtractor(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunColorExtractor argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunColorExtractor argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
 
@@ -183,6 +196,10 @@ int RunColorExtractor(int argc, char** argv) {
 }
 
 int RunMapper(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunMapper argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunMapper argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string image_list_path;
@@ -260,6 +277,10 @@ int RunMapper(int argc, char** argv) {
 }
 
 int RunHierarchicalMapper(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunHierarchicalMapper argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunHierarchicalMapper argv[" << i << "]: " << argv[i];
+  }
   HierarchicalMapperController::Options hierarchical_options;
   SceneClustering::Options clustering_options;
   std::string output_path;
@@ -300,6 +321,10 @@ int RunHierarchicalMapper(int argc, char** argv) {
 }
 
 int RunPointFiltering(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunPointFiltering argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunPointFiltering argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
 
@@ -337,6 +362,10 @@ int RunPointFiltering(int argc, char** argv) {
 }
 
 int RunPointTriangulator(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunPointTriangulator argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunPointTriangulator argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   bool clear_points = false;
@@ -662,6 +691,10 @@ std::vector<CameraRig> ReadCameraRigConfig(const std::string& rig_config_path,
 }  // namespace
 
 int RunRigBundleAdjuster(int argc, char** argv) {
+  LOG(INFO) << "sfm.cc RunRigBundleAdjuster argc: " << argc;
+  for(int i=0; i<argc; ++i) {
+    LOG(INFO) << "sfm.cc RunRigBundleAdjuster argv[" << i << "]: " << argv[i];
+  }
   std::string input_path;
   std::string output_path;
   std::string rig_config_path;
