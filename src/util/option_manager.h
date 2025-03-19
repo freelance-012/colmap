@@ -117,6 +117,8 @@ class OptionManager {
   bool ReRead(const std::string& path);
   void Write(const std::string& path) const;
 
+  bool print_info;
+
   std::shared_ptr<std::string> project_path;
   std::shared_ptr<std::string> database_path;
   std::shared_ptr<std::string> image_path;

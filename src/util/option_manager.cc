@@ -53,6 +53,8 @@ namespace config = boost::program_options;
 namespace colmap {
 
 OptionManager::OptionManager(bool add_project_options) {
+  print_info = true;
+
   project_path = std::make_shared<std::string>();
   database_path = std::make_shared<std::string>();
   image_path = std::make_shared<std::string>();
@@ -80,6 +82,11 @@ OptionManager::OptionManager(bool add_project_options) {
 
   AddRandomOptions();
   AddLogOptions();
+
+  if(print_info)
+  {
+    printf("option_manager print_info: %d\n", print_info);
+  }
 
   if (add_project_options) {
     desc_->add_options()("project_path", config::value<std::string>());
@@ -195,6 +202,7 @@ void OptionManager::AddLogOptions() {
   }
   added_log_options_ = true;
 
+  AddAndRegisterDefaultOption("print_info", &print_info);
   AddAndRegisterDefaultOption("log_to_stderr", &FLAGS_logtostderr);
   AddAndRegisterDefaultOption("log_level", &FLAGS_v);
 }
@@ -778,6 +786,8 @@ void OptionManager::Reset() {
 }
 
 void OptionManager::ResetOptions(const bool reset_paths) {
+  print_info = true;
+
   if (reset_paths) {
     *project_path = "";
     *database_path = "";

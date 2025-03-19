@@ -42,6 +42,8 @@ class SiftMatchGPU;
 namespace colmap {
 
 struct SiftExtractionOptions {
+  bool print_info = true;
+
   // Number of threads for feature extraction.
   int num_threads = -1;
 
@@ -114,6 +116,8 @@ struct SiftExtractionOptions {
 };
 
 struct SiftMatchingOptions {
+  bool print_info = true;
+
   // Number of threads for feature matching and geometric verification.
   int num_threads = -1;
 
