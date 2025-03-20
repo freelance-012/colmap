@@ -107,6 +107,11 @@ SIFTExtractionWidget::SIFTExtractionWidget(QWidget* parent,
 }
 
 void SIFTExtractionWidget::Run() {
+  if(options_->print_info)
+  {
+    printf("2. SIFTExtractionWidget::Run\n");
+  }
+
   WriteOptions();
 
   ImageReaderOptions reader_options = *options_->image_reader;
@@ -279,6 +284,10 @@ void FeatureExtractionWidget::SelectCameraModel(const int idx) {
 }
 
 void FeatureExtractionWidget::Extract() {
+  if(options_->print_info)
+  {
+    printf("FeatureExtractionWidget::Extract\n");
+  }
   // If the custom parameter radiobuttion is not checked, but the
   // parameters textbox contains parameters.
   const auto old_camera_params_text = camera_params_text_->text();

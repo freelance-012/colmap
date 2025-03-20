@@ -893,6 +893,11 @@ void MainWindow::ExportAsText() {
 }
 
 void MainWindow::FeatureExtraction() {
+  if(options_.print_info)
+  {
+    printf("1. MainWindow::FeatureExtraction\n");
+  }
+  
   if (options_.Check()) {
     feature_extraction_widget_->show();
     feature_extraction_widget_->raise();

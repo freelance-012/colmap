@@ -175,6 +175,11 @@ SiftFeatureExtractor::SiftFeatureExtractor(
 }
 
 void SiftFeatureExtractor::Run() {
+  if(sift_options_.print_info)
+  {
+    printf("3. SiftFeatureExtractor::Run\n");
+  }
+
   PrintHeading1("Feature extraction");
 
   for (auto& resizer : resizers_) {
@@ -311,6 +316,9 @@ ImageResizerThread::ImageResizerThread(const int max_image_size,
       output_queue_(output_queue) {}
 
 void ImageResizerThread::Run() {
+  
+  printf("4. ImageResizerThread::Run\n");
+  
   while (true) {
     if (IsStopped()) {
       break;
@@ -361,6 +369,9 @@ SiftFeatureExtractorThread::SiftFeatureExtractorThread(
 }
 
 void SiftFeatureExtractorThread::Run() {
+
+  printf("5. SiftFeatureExtractorThread::Run\n");
+
   std::unique_ptr<SiftGPU> sift_gpu;
   if (sift_options_.use_gpu) {
 #ifndef CUDA_ENABLED
@@ -434,6 +445,9 @@ FeatureWriterThread::FeatureWriterThread(const size_t num_images,
     : num_images_(num_images), database_(database), input_queue_(input_queue) {}
 
 void FeatureWriterThread::Run() {
+
+  printf("6. FeatureWriterThread::Run\n");
+
   size_t image_index = 0;
   while (true) {
     if (IsStopped()) {
