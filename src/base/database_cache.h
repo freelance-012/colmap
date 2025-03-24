@@ -95,7 +95,7 @@ class DatabaseCache {
   // Find specific image by name. Note that this uses linear search.
   const class Image* FindImageWithName(const std::string& name) const;
 
- private:
+ protected:
   class CorrespondenceGraph correspondence_graph_;
 
   EIGEN_STL_UMAP(camera_t, class Camera) cameras_;
