@@ -1762,6 +1762,7 @@ void Reconstruction::ReadPoints3DText(const std::string& path) {
 }
 
 void Reconstruction::ReadCamerasBinary(const std::string& path) {
+  printf("Reconstruction::ReadCamerasBinary\n");
   std::ifstream file(path, std::ios::binary);
   CHECK(file.is_open()) << path;
 
@@ -1779,6 +1780,7 @@ void Reconstruction::ReadCamerasBinary(const std::string& path) {
 }
 
 void Reconstruction::ReadImagesBinary(const std::string& path) {
+  printf("Reconstruction::ReadImagesBinary\n");
   std::ifstream file(path, std::ios::binary);
   CHECK(file.is_open()) << path;
 
@@ -1839,6 +1841,7 @@ void Reconstruction::ReadImagesBinary(const std::string& path) {
 }
 
 void Reconstruction::ReadPoints3DBinary(const std::string& path) {
+  printf("Reconstruction::ReadPoints3DBinary\n");
   std::ifstream file(path, std::ios::binary);
   CHECK(file.is_open()) << path;
 

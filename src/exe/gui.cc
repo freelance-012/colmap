@@ -37,8 +37,10 @@
 namespace colmap {
 
 int RunGraphicalUserInterface(int argc, char** argv) {
+  printf("gui.cc RunGraphicalUserInterface argc: %d\n", argc);
   LOG(INFO) << "gui.cc RunGraphicalUserInterface argc: " << argc;
   for(int i=0; i<argc; ++i) {
+    printf("colmap.cc RunGraphicalUserInterface argv[%d]: %s\n", i, argv[i]);
     LOG(INFO) << "colmap.cc RunGraphicalUserInterface argv[" << i << "]: " << argv[i];
   }
 

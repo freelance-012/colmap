@@ -58,6 +58,10 @@ MainWindow::MainWindow(const OptionManager& options)
 }
 
 void MainWindow::ImportReconstruction(const std::string& path) {
+  if(options_.print_info)
+  {
+    printf("MainWindow::ImportReconstruction\n");
+  }
   const size_t idx = reconstruction_manager_.Read(path);
   reconstruction_manager_widget_->Update();
   reconstruction_manager_widget_->SelectReconstruction(idx);
@@ -565,6 +569,10 @@ void MainWindow::CreateControllers() {
 }
 
 void MainWindow::ProjectNew() {
+  if(options_.print_info)
+  {
+    printf("MainWindow::ProjectNew\n");
+  }
   if (ReconstructionOverwrite()) {
     project_widget_->Reset();
     project_widget_->show();
@@ -573,6 +581,10 @@ void MainWindow::ProjectNew() {
 }
 
 bool MainWindow::ProjectOpen() {
+  if(options_.print_info)
+  {
+    printf("MainWindow::ProjectOpen\n");
+  }
   if (!ReconstructionOverwrite()) {
     return false;
   }
@@ -599,11 +611,19 @@ bool MainWindow::ProjectOpen() {
 }
 
 void MainWindow::ProjectEdit() {
+  if(options_.print_info)
+  {
+    printf("MainWindow::ProjectEdit\n");
+  }
   project_widget_->show();
   project_widget_->raise();
 }
 
 void MainWindow::ProjectSave() {
+  if(options_.print_info)
+  {
+    printf("MainWindow::ProjectSave\n");
+  }
   if (!ExistsFile(*options_.project_path)) {
     std::string project_path =
         QFileDialog::getSaveFileName(this, tr("Select project file"), "",

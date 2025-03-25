@@ -75,6 +75,7 @@ void ReconstructionManager::Delete(const size_t idx) {
 void ReconstructionManager::Clear() { reconstructions_.clear(); }
 
 size_t ReconstructionManager::Read(const std::string& path) {
+  printf("ReconstructionManager::Read\n");
   const size_t idx = Add();
   reconstructions_[idx]->Read(path);
   return idx;
