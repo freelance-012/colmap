@@ -231,6 +231,11 @@ void FeatureMatcherCache::Setup() {
     images_cache_.emplace(image.ImageId(), image);
   }
 
+  if(images.empty())
+  {
+    return;
+  }
+
   keypoints_cache_ = std::make_unique<LRUCache<image_t, FeatureKeypointsPtr>>(
       cache_size_, [this](const image_t image_id) {
         return std::make_shared<FeatureKeypoints>(

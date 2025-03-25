@@ -52,18 +52,13 @@ CorrespondenceGraph::NumCorrespondencesBetweenImages() const {
 }
 
 void CorrespondenceGraph::Finalize() {
-  for (auto it = images_.begin(); it != images_.end();) {
+  for (auto it = images_.begin(); it != images_.end(); ++it) {
     it->second.num_observations = 0;
     for (auto& corr : it->second.corrs) {
       corr.shrink_to_fit();
       if (corr.size() > 0) {
         it->second.num_observations += 1;
       }
-    }
-    if (it->second.num_observations == 0) {
-      images_.erase(it++);
-    } else {
-      ++it;
     }
   }
 }
@@ -253,6 +248,44 @@ bool CorrespondenceGraph::IsTwoViewObservation(
   const std::vector<Correspondence>& other_corrs =
       other_image.corrs.at(corrs[0].point2D_idx);
   return other_corrs.size() == 1;
+}
+
+void CorrespondenceGraph::DeleteCorrespondences(
+    const image_t image_id1, const image_t image_id2) {
+  int num_corr = NumCorrespondencesBetweenImages(image_id1, image_id2);
+  if (num_corr == 0) {
+    return;
+  }
+
+  Image &image1 = images_[image_id1];
+  for (size_t i1 = 0; i1 < image1.corrs.size(); ++i1) {
+    auto &corr1 = image1.corrs[i1];
+    for (auto it1 = corr1.begin(); it1 != corr1.end();) {
+      if (it1->image_id == image_id2) {
+        it1 = corr1.erase(it1);
+        --image1.num_correspondences;
+      } else {
+        ++it1;
+      }
+    }
+  }
+
+  Image &image2 = images_[image_id2];
+  for (size_t i2 = 0; i2 < image2.corrs.size(); ++i2)
+  {
+    auto &corr2 = image2.corrs[i2];
+    for (auto it2 = corr2.begin(); it2 != corr2.end();) {
+      if (it2->image_id == image_id1) {
+        it2 = corr2.erase(it2);
+        --image2.num_correspondences;
+      } else {
+        ++it2;
+      }
+    }
+  }
+
+  image_pair_t pair_id = Database::ImagePairToPairId(image_id1, image_id2);
+  image_pairs_[pair_id].num_correspondences = 0;
 }
 
 }  // namespace colmap

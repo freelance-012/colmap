@@ -132,6 +132,8 @@ class CorrespondenceGraph {
   bool IsTwoViewObservation(const image_t image_id,
                             const point2D_t point2D_idx) const;
 
+  void DeleteCorrespondences(const image_t image_id1, const image_t image_id2);
+
  private:
   struct Image {
     // Number of 2D points with at least one correspondence to another image.

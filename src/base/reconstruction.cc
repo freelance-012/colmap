@@ -162,6 +162,14 @@ void Reconstruction::AddImage(class Image image) {
   CHECK(images_.emplace(image_id, std::move(image)).second);
 }
 
+void Reconstruction::AddImagePair(const image_pair_t pair_id,
+                                  const int num_total_corrs)
+{
+    ImagePairStat image_pair_stat;
+    image_pair_stat.num_total_corrs = num_total_corrs;
+    CHECK(image_pair_stats_.emplace(pair_id, image_pair_stat).second);
+}
+
 point3D_t Reconstruction::AddPoint3D(const Eigen::Vector3d& xyz, Track track,
                                      const Eigen::Vector3ub& color) {
   const point3D_t point3D_id = ++num_added_points3D_;
@@ -2105,6 +2113,28 @@ void Reconstruction::SetObservationAsTriangulated(
                image_pair_stats_[pair_id].num_total_corrs)
           << "The correspondence graph graph must not contain duplicate "
              "matches";
+    }
+  }
+}
+
+void Reconstruction::SetObservationAsTriangulated(
+    const image_t image_id) {
+  if (correspondence_graph_ == nullptr) {
+    return;
+  }
+
+  class Image& image = Image(image_id);
+  for (point2D_t point2D_idx = 0; point2D_idx < image.NumPoints2D();
+       ++point2D_idx) {
+    const std::vector<CorrespondenceGraph::Correspondence>& corrs =
+        correspondence_graph_->FindCorrespondences(image_id, point2D_idx);
+
+    for (const auto& corr : corrs) {
+      const class Image& corr_image = Image(corr.image_id);
+      if (corr_image.Point2D(corr.point2D_idx).HasPoint3D())
+      {
+        image.IncrementCorrespondenceHasPoint3D(point2D_idx);
+      }
     }
   }
 }

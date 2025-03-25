@@ -134,6 +134,8 @@ class Reconstruction {
   // Add new image.
   void AddImage(class Image image);
 
+  void AddImagePair(const image_pair_t pair_id, const int num_total_corrs);
+
   // Add new 3D object, and return its unique ID.
   point3D_t AddPoint3D(
       const Eigen::Vector3d& xyz, Track track,
@@ -384,6 +386,8 @@ class Reconstruction {
 
   // Create all image sub-directories in the given path.
   void CreateImageDirs(const std::string& path) const;
+
+  void SetObservationAsTriangulated(const image_t image_id);
 
  private:
   size_t FilterPoints3DWithSmallTriangulationAngle(
